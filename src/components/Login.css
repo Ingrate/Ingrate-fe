@@ -12,6 +12,11 @@ body {
   height: 100%;
 }
 
+.Login h3 {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.4)
+}
+
 .Login .login-wrapper {
   margin: 0 auto;
   margin-bottom: 5%;
