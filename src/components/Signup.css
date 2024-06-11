@@ -1,0 +1,40 @@
+.Signup {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.Signup .signup-wrapper {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.Signup .img {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(124, 215, 89);
+}
+
+.Signup h1 {
+  margin: 10px;
+}
+
+.Signup input[type=text] {
+  width: 350px;
+  height: 35px;
+  font-size: 18px;
+  padding: 0px 6px;
+}
+
+.Signup button {
+  width: 366px;
+  height: 41px;
+  font-size: 20px;
+}
