@@ -4,7 +4,6 @@ import List from "./List";
 function Search() {
   return (
     <div className="Search">
-      <h1>Ingrate</h1>
       <div className="search-wrapper">
         <input
           type="text"

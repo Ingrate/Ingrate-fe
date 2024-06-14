@@ -6,11 +6,6 @@
   text-align: center;
 }
 
-.Search h1 {
-  font-size: 80px;
-  margin: 50px;
-}
-
 .Search .search-wrapper {
   display: flex;
   flex-direction: column;
