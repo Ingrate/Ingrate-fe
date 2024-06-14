@@ -22,7 +22,7 @@ const datas = [
   },
 ];
 
-function Search() {
+function Search({ onChange }) {
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState(false);
 
@@ -30,10 +30,11 @@ function Search() {
     if (select === true) {
       setSelect(false);
     }
+    onChange({ target: { id: "name", value: "" }, });
   }
 
   const onClickList = (e) => {
-    console.dir(e);
+    onChange({ target: { id: "name", value: e.target.innerText }, });
     setSearch(e.target.innerText);
     setSelect(true);
   }
@@ -57,6 +58,7 @@ function Search() {
     <div className="Search">
       <div className="search-wrapper">
         <input
+          id="name"
           value={search}
           onChange={onChangeSearch}
           onClick={onClickSearch}
@@ -69,7 +71,7 @@ function Search() {
         </div>
       </div>
       <div className={`list-wrapper ${select ? "" : "invisible"}`}>
-        <InputValue></InputValue>
+        <InputValue onChange={onChange}></InputValue>
       </div>
 
     </div >

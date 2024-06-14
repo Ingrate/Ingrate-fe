@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-function InputValue() {
+function InputValue({ onChange }) {
   const nav = useNavigate();
 
   const onClickButton = () => {
@@ -10,9 +10,13 @@ function InputValue() {
 
   return (
     <div>
-      <div className="amount">
-        <input type="text" placeholder="양" />
-        <select name="unit" id="">
+      <div>
+        <input
+          id="amount"
+          type="text"
+          placeholder="양"
+          onChange={onChange} />
+        <select name="unit" onClick={(e) => { onChange({ target: { id: "unit", value: e.target.selectedOptions[0].innerText } }) }}>
           <option value="default">단위</option>
           <option value="gae">개</option>
           <option value="dan">단</option>
@@ -20,7 +24,7 @@ function InputValue() {
           <option value="ml">ml</option>
         </select>
       </div>
-      <input type="text" placeholder="가격" />
+      <input id="cost" type="text" onChange={onChange} placeholder="가격" />
       <Button text="확인" color="grey" onClick={onClickButton}></Button>
     </div>
   )
