@@ -12,7 +12,7 @@ function Signup() {
         <input type="text" placeholder="비밀번호 확인" />
         <button>회원가입</button>
         <div className="to-login">
-          <NavLink to="/login">로그인 페이지로 돌아가기</NavLink>
+          <NavLink to="/">로그인 페이지로 돌아가기</NavLink>
         </div>
 
       </div>
