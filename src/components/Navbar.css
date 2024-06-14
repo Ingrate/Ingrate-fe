@@ -1,0 +1,18 @@
+.Navbar .bar-wrapper {
+  display: flex;
+  gap: 35px;
+  padding: 20px 50px 20px 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.isActive {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.notActive {
+  text-decoration: none;
+  color: black
+}
