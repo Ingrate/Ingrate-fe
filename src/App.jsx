@@ -19,7 +19,6 @@ function App() {
 
   const onChange = (e) => {
     setIngred({ ...ingred, [e.target.id]: e.target.value, })
-    console.log(ingred);
   }
 
   return (
@@ -28,7 +27,7 @@ function App() {
       <Route path='/signup' element={<Signup_page />}></Route>
       <Route path='/main' element={<Main_page onChange={onChange} />}></Route>
       <Route path='/user' element={<User_page />}></Route>
-      <Route path='/rate' element={<Rate_page />}></Route>
+      <Route path='/rate' element={<Rate_page ingred={ingred} />}></Route>
     </Routes>
   )
 }
