@@ -1,5 +1,6 @@
 import "./Search.css";
 import List from "./List";
+import InputValue from "./InputValue";
 import { useState } from "react";
 
 const datas = [
@@ -66,6 +67,9 @@ function Search() {
             return <List key={data.id} value={data.value} onClick={onClickList}></List>
           })}
         </div>
+      </div>
+      <div className={`list-wrapper ${select ? "" : "invisible"}`}>
+        <InputValue></InputValue>
       </div>
 
     </div >
