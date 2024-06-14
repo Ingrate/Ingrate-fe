@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.Search .invisible {
+  display: none;
+}
+
 .Search .search-wrapper {
   display: flex;
   flex-direction: column;
