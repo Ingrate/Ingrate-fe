@@ -6,6 +6,7 @@ import User_page from './pages/User_page';
 import Rate_page from './pages/Rate_page';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import Test from './pages/Test';
 
 function App() {
   const [ingred, setIngred] = useState({
@@ -28,6 +29,7 @@ function App() {
       <Route path='/main' element={<Main_page onChange={onChange} />}></Route>
       <Route path='/user' element={<User_page />}></Route>
       <Route path='/rate' element={<Rate_page ingred={ingred} />}></Route>
+      <Route path='/test' element={<Test />}></Route>
     </Routes>
   )
 }
