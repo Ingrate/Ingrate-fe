@@ -2,12 +2,12 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Save from "../components/Save";
 
-function Save_page({ ingred }) {
+function Save_page({ ingred, onChange }) {
   return (
     <>
       <Navbar></Navbar>
       <Header></Header>
-      <Save {...ingred}></Save>
+      <Save {...ingred} onChange={onChange}></Save>
     </>
   );
 }
