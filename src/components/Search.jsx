@@ -1,4 +1,4 @@
-import "./Search.css";
+// import "./Search.css";
 import List from "./List";
 import InputValue from "./InputValue";
 import { useState } from "react";
@@ -30,18 +30,17 @@ function Search({ onChange }) {
     if (select === true) {
       setSelect(false);
     }
-    onChange({ target: { id: "name", value: "" }, });
-  }
+    onChange({ target: { id: "name", value: "" } });
+  };
 
   const onClickList = (e) => {
-    onChange({ target: { id: "name", value: e.target.innerText }, });
+    onChange({ target: { id: "name", value: e.target.innerText } });
     setSearch(e.target.innerText);
     setSelect(true);
-  }
+  };
 
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
-
   };
 
   const getFilteredData = () => {
@@ -49,33 +48,42 @@ function Search({ onChange }) {
       return [];
     }
     return datas.filter((data) =>
-      data.value.toLowerCase().includes(search.toLowerCase())
+      data.value.toLowerCase().includes(search.toLowerCase()),
     );
   };
 
   const filteredDatas = getFilteredData();
   return (
-    <div className="Search">
-      <div className="search-wrapper">
+    <div className="Search flex flex-col">
+      <div className="search-wrapper w-600 rounded-4xl m-auto flex flex-col justify-center bg-amber-300 p-4 align-middle">
         <input
+          className="bg-transparent p-2 pb-4 text-center text-2xl outline-none"
           id="name"
           value={search}
           onChange={onChangeSearch}
           onClick={onClickSearch}
           type="text"
-          placeholder="검색" />
-        <div className={`list-wrapper ${select ? "invisible" : ""}`}>
+          placeholder="식재료 이름으로 검색하세요"
+        />
+        <div
+          className={`list-wrapper ${select ? "invisible" : ""} rounded-3xl bg-white text-lg`}
+        >
           {filteredDatas.map((data) => {
-            return <List key={data.id} value={data.value} onClick={onClickList}></List>
+            return (
+              <List
+                key={data.id}
+                value={data.value}
+                onClick={onClickList}
+              ></List>
+            );
           })}
         </div>
       </div>
       <div className={`list-wrapper ${select ? "" : "invisible"}`}>
         <InputValue onChange={onChange}></InputValue>
       </div>
-
-    </div >
-  )
+    </div>
+  );
 }
 
 export default Search;
