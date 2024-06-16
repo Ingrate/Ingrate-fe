@@ -3,7 +3,10 @@
 function Button({ text, color, onClick }) {
   return (
     <div className="Button">
-      <button className={`w-28 border-2`} onClick={onClick}>
+      <button
+        className={`w-40 rounded-sm bg-gray-200 p-4 text-lg`}
+        onClick={onClick}
+      >
         {text}
       </button>
     </div>

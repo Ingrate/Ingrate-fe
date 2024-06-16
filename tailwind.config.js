@@ -14,6 +14,9 @@ export default {
       borderRadius: {
         "4xl": "2rem",
       },
+      colors: {
+        "custom-grey": "#e6e6e6",
+      },
     },
   },
   plugins: [],
