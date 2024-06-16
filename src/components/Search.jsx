@@ -83,24 +83,34 @@ function Search({ onChange }) {
         </div>
       </div>
       <div
-        className={`list-wrapper m-4 flex flex-col gap-10 ${select ? "" : "hidden"}`}
+        className={`list-wrapper m-4 flex flex-col gap-7 ${select ? "" : "hidden"}`}
       >
         <InputValue onChange={onChange}></InputValue>
-        <div className="m-auto flex gap-7">
+        <div className="w-600 m-auto flex justify-between p-1">
           <Button
-            text="비교하기"
+            text="뒤로가기"
             color="grey"
             onClick={() => {
-              nav("/rate");
+              setSearch("");
+              onClickSearch();
             }}
           ></Button>
-          <Button
-            text="등록하기"
-            color="grey"
-            onClick={() => {
-              nav("/save");
-            }}
-          ></Button>
+          <div className="flex gap-6">
+            <Button
+              text="비교하기"
+              color="grey"
+              onClick={() => {
+                nav("/rate");
+              }}
+            ></Button>
+            <Button
+              text="등록하기"
+              color="grey"
+              onClick={() => {
+                nav("/save");
+              }}
+            ></Button>
+          </div>
         </div>
       </div>
     </div>
