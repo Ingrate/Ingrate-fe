@@ -2,6 +2,8 @@
 import List from "./List";
 import InputValue from "./InputValue";
 import { useState } from "react";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const datas = [
   {
@@ -25,6 +27,7 @@ const datas = [
 function Search({ onChange }) {
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState(false);
+  const nav = useNavigate();
 
   const onClickSearch = () => {
     if (select === true) {
@@ -54,10 +57,10 @@ function Search({ onChange }) {
 
   const filteredDatas = getFilteredData();
   return (
-    <div className="Search flex flex-col">
-      <div className="search-wrapper w-600 rounded-4xl m-auto flex flex-col justify-center bg-amber-300 p-4 align-middle">
+    <div className="Search flex flex-col gap-4">
+      <div className="search-wrapper w-600 rounded-4xl m-auto flex flex-col justify-center gap-4 bg-amber-300 p-4 align-middle">
         <input
-          className="bg-transparent p-2 pb-4 text-center text-2xl outline-none"
+          className="bg-transparent p-2 text-center text-2xl outline-none"
           id="name"
           value={search}
           onChange={onChangeSearch}
@@ -66,7 +69,7 @@ function Search({ onChange }) {
           placeholder="식재료 이름으로 검색하세요"
         />
         <div
-          className={`list-wrapper ${select ? "invisible" : ""} rounded-3xl bg-white text-lg`}
+          className={`list-wrapper ${select ? "hidden" : ""} rounded-3xl bg-white text-lg`}
         >
           {filteredDatas.map((data) => {
             return (
@@ -79,8 +82,26 @@ function Search({ onChange }) {
           })}
         </div>
       </div>
-      <div className={`list-wrapper ${select ? "" : "invisible"}`}>
+      <div
+        className={`list-wrapper flex flex-col gap-4 ${select ? "" : "hidden"}`}
+      >
         <InputValue onChange={onChange}></InputValue>
+        <div className="flex gap-4">
+          <Button
+            text="비교하기"
+            color="grey"
+            onClick={() => {
+              nav("/rate");
+            }}
+          ></Button>
+          <Button
+            text="등록하기"
+            color="grey"
+            onClick={() => {
+              nav("/save");
+            }}
+          ></Button>
+        </div>
       </div>
     </div>
   );
