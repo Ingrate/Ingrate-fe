@@ -57,10 +57,10 @@ function Search({ onChange }) {
 
   const filteredDatas = getFilteredData();
   return (
-    <div className="Search flex flex-col gap-5">
+    <div className="Search flex flex-col gap-4">
       <div className="search-wrapper w-600 rounded-4xl m-auto flex flex-col justify-center gap-4 bg-amber-300 p-4 align-middle">
         <input
-          className="bg-transparent p-2 text-center text-2xl outline-none"
+          className="bg-transparent p-1 text-center text-2xl outline-none"
           id="name"
           value={search}
           onChange={onChangeSearch}
@@ -83,10 +83,10 @@ function Search({ onChange }) {
         </div>
       </div>
       <div
-        className={`list-wrapper flex flex-col gap-7 ${select ? "" : "hidden"}`}
+        className={`list-wrapper m-4 flex flex-col gap-10 ${select ? "" : "hidden"}`}
       >
         <InputValue onChange={onChange}></InputValue>
-        <div className="m-auto flex gap-5">
+        <div className="m-auto flex gap-7">
           <Button
             text="비교하기"
             color="grey"

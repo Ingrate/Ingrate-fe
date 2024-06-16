@@ -1,16 +1,16 @@
 function InputValue({ onChange }) {
   return (
-    <div className="w-600 m-auto flex flex-col gap-5">
+    <div className="w-600 m-auto flex flex-col gap-8">
       <div className="w-600 m-auto flex gap-5">
         <input
-          className="rounded-4xl flex w-full bg-amber-300 p-6 text-center text-2xl outline-none"
+          className="rounded-4xl p-4.5 flex w-full bg-amber-300 text-center text-2xl outline-none"
           id="amount"
           type="text"
           placeholder="양"
           onChange={onChange}
         />
         <select
-          className="rounded-4xl w-52 bg-amber-300 p-6 text-center text-2xl outline-none"
+          className="rounded-4xl p-4.5 w-52 bg-amber-300 text-center text-2xl outline-none"
           name="unit"
           onClick={(e) => {
             onChange({
@@ -29,7 +29,7 @@ function InputValue({ onChange }) {
         </select>
       </div>
       <input
-        className="w-600 rounded-4xl m-auto flex bg-amber-300 p-6 text-center text-2xl outline-none"
+        className="w-600 rounded-4xl p-4.5 m-auto flex bg-amber-300 text-center text-2xl outline-none"
         id="cost"
         type="text"
         onChange={onChange}
