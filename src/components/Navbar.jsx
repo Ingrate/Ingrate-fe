@@ -21,12 +21,6 @@ function Navbar() {
           to="/"
           className={({ isActive }) => (isActive ? "isActive" : "notActive")}
         >
-          등록하기
-        </NavLink>
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "isActive" : "notActive")}
-        >
           로그아웃
         </NavLink>
       </div>
