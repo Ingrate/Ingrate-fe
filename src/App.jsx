@@ -7,8 +7,10 @@ import Rate_page from "./pages/Rate_page";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Save_page from "./pages/Save_page";
+import Myingredients_page from "./pages/Myingredients_page";
 
 function App() {
+  const [ingreds, setIngreds] = useState([]);
   const [ingred, setIngred] = useState({
     id: "0",
     name: "",
@@ -17,6 +19,10 @@ function App() {
     cost: "",
     memo: "",
   });
+
+  const onUpdate = () => {
+    setIngreds([ingred, ...ingreds]);
+  };
 
   const onChange = (e) => {
     setIngred({ ...ingred, [e.target.id]: e.target.value });
@@ -33,6 +39,10 @@ function App() {
       <Route
         path="/save"
         element={<Save_page ingred={ingred} onChange={onChange} />}
+      ></Route>
+      <Route
+        path="/myIngredients"
+        element={<Myingredients_page ingred={ingred} onChange={onChange} />}
       ></Route>
     </Routes>
   );
