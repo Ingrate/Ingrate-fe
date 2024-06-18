@@ -64,7 +64,13 @@ function App() {
       ></Route>
       <Route
         path="/myIngredients"
-        element={<Myingredients_page onUpdate={onUpdate} onChange={onChange} />}
+        element={
+          <Myingredients_page
+            ingreds={ingreds}
+            onUpdate={onUpdate}
+            onChange={onChange}
+          />
+        }
       ></Route>
     </Routes>
   );
