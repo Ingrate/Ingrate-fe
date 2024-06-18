@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import { useState } from "react";
 
-function Save({ name, amount, unit, cost, onChange }) {
+function Save({ name, amount, unit, cost, onChange, onRegister }) {
   const nav = useNavigate();
   const [memo, setMemo] = useState("");
 
@@ -27,12 +27,7 @@ function Save({ name, amount, unit, cost, onChange }) {
         className="w-600 rounded-4xl m-auto h-52 bg-amber-300 p-8 pl-10 pr-10 text-center align-middle text-2xl"
       ></input>
       <div className="flex justify-center">
-        <Button
-          text="저장"
-          onClick={() => {
-            nav("/main");
-          }}
-        ></Button>
+        <Button text="저장" onClick={onRegister}></Button>
       </div>
     </div>
   );

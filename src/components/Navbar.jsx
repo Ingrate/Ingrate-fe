@@ -12,7 +12,7 @@ function Navbar() {
           사용자명
         </NavLink>
         <NavLink
-          to="/"
+          to="/myIngredients"
           className={({ isActive }) => (isActive ? "isActive" : "notActive")}
         >
           내 식재료

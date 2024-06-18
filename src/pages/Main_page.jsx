@@ -9,7 +9,7 @@ function Main_page({ onChange }) {
       <Header></Header>
       <Search onChange={onChange}></Search>
     </div>
-  )
+  );
 }
 
 export default Main_page;
