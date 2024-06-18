@@ -12,7 +12,7 @@ function InputValue({ onChange }) {
         <select
           className="rounded-4xl p-4.5 w-52 bg-amber-300 text-center text-2xl outline-none"
           name="unit"
-          onClick={(e) => {
+          onChange={(e) => {
             onChange({
               target: {
                 id: "unit",
