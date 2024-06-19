@@ -16,9 +16,13 @@ export default {
       },
       borderRadius: {
         "4xl": "2rem",
+        "5xl": "3rem",
       },
       colors: {
         "custom-grey": "#e6e6e6",
+      },
+      margin: {
+        81: "21rem",
       },
     },
   },

@@ -1,7 +1,6 @@
 import MyList from "./MyList";
 
 function MyIngred({ ingreds }) {
-  console.log(ingreds);
   return (
     <div>
       {ingreds.map((ingred) => {
