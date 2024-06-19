@@ -65,7 +65,7 @@ function App() {
   const onUpdate = (e) => {
     ingreds.map((item) => {
       if (item.id === e.target.id) {
-        setIngreds(([e.target.vid] = e.target.value));
+        setIngreds(([e.target.id] = e.target.value));
       }
     });
   };

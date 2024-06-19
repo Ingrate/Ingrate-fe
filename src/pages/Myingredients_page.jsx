@@ -3,7 +3,7 @@ import MiniHeader from "../components/MiniHeader";
 import MyIngred from "../components/MyIngred";
 import Divider from "../components/Divider";
 
-function Myingredients_page({ ingreds }) {
+function Myingredients_page({ ingreds, onUpdate }) {
   return (
     <>
       <Navbar></Navbar>
@@ -16,7 +16,7 @@ function Myingredients_page({ ingreds }) {
         <div>가격</div>
       </div>
       <Divider></Divider>
-      <MyIngred ingreds={ingreds}></MyIngred>
+      <MyIngred ingreds={ingreds} onUpdate={onUpdate}></MyIngred>
     </>
   );
 }

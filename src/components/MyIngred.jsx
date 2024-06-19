@@ -1,10 +1,12 @@
 import MyList from "./MyList";
 
-function MyIngred({ ingreds }) {
+function MyIngred({ ingreds, onUpdate }) {
   return (
     <div>
       {ingreds.map((ingred) => {
-        return <MyList key={ingred.id} {...ingred}></MyList>;
+        return (
+          <MyList key={ingred.id} {...ingred} onUpdate={onUpdate}></MyList>
+        );
       })}
     </div>
   );
