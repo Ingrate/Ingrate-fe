@@ -76,6 +76,11 @@ function App() {
     console.log(ingred);
   };
 
+  // 내 식재료 페이지에서 식재료 정보를 삭제하는 함수
+  const onDelete = (del) => {
+    setIngreds(ingreds.filter((item) => String(item.id) !== String(del.id)));
+  };
+
   return (
     <Routes>
       <Route path="/" element={<Login_page />}></Route>
@@ -103,6 +108,7 @@ function App() {
             ingreds={ingreds}
             onUpdate={onUpdate}
             onChange={onChange}
+            onDelete={onDelete}
           />
         }
       ></Route>

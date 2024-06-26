@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function Detail({ setClicked, ingred, onUpdate }) {
+function Detail({ setClicked, ingred, onUpdate, onDelete }) {
   const [editor, setEditor] = useState(false);
   const [changedIngred, setChangedIngred] = useState(ingred);
 
@@ -9,8 +9,14 @@ function Detail({ setClicked, ingred, onUpdate }) {
     setChangedIngred({ ...ingred, [e.target.id]: e.target.value });
   };
 
-  const onClickClose = () => {
+  const onClickDone = () => {
     onUpdate(changedIngred);
+    setEditor(false);
+    setClicked(false);
+  };
+
+  const onClickClose = () => {
+    setEditor(false);
     setClicked(false);
   };
 
@@ -18,7 +24,10 @@ function Detail({ setClicked, ingred, onUpdate }) {
     setEditor(true);
   };
 
-  const onClickDelete = () => {};
+  const onClickDelete = () => {
+    onDelete(ingred);
+    setClicked(false);
+  };
 
   return (
     <div className="flex justify-center">
@@ -72,8 +81,8 @@ function Detail({ setClicked, ingred, onUpdate }) {
             value={changedIngred.memo}
           />
           <div className="button-section absolute bottom-0 right-4 m-9 flex justify-end gap-9">
-            <Button text={"수정 완료"} onClick={onClickClose}></Button>
-            <Button text={"취소"} onClick={onClickEdit}></Button>
+            <Button text={"수정 완료"} onClick={onClickDone}></Button>
+            <Button text={"취소"} onClick={onClickClose}></Button>
           </div>
         </div>
         <div
