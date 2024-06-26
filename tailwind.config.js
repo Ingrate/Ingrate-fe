@@ -22,7 +22,7 @@ export default {
         "custom-grey": "#e6e6e6",
       },
       margin: {
-        81: "21rem",
+        81: "23rem",
       },
     },
   },
