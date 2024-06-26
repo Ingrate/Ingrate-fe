@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Detail from "./Detail";
 
-function MyList({ id, name, amount, unit, cost, memo, onUpdate }) {
+function MyList({ id, ingred, onUpdate }) {
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -9,12 +9,7 @@ function MyList({ id, name, amount, unit, cost, memo, onUpdate }) {
       <div className={`${clicked ? "" : "hidden"}`}>
         <Detail
           setClicked={setClicked}
-          id={id}
-          name={name}
-          amount={amount}
-          unit={unit}
-          cost={cost}
-          memo={memo}
+          ingred={ingred}
           onUpdate={onUpdate}
         ></Detail>
       </div>
@@ -24,12 +19,12 @@ function MyList({ id, name, amount, unit, cost, memo, onUpdate }) {
           setClicked(true);
         }}
       >
-        <div>{name}</div>
+        <div>{ingred.name}</div>
         <div>
-          {amount}
-          {unit}
+          {ingred.amount}
+          {ingred.unit}
         </div>
-        <div>{cost}원</div>
+        <div>{ingred.cost}원</div>
       </div>
     </div>
   );

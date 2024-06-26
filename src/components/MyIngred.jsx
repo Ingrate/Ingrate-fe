@@ -5,7 +5,7 @@ function MyIngred({ ingreds, onUpdate }) {
     <div>
       {ingreds.map((ingred) => {
         return (
-          <MyList key={ingred.id} {...ingred} onUpdate={onUpdate}></MyList>
+          <MyList key={ingred.id} ingred={ingred} onUpdate={onUpdate}></MyList>
         );
       })}
     </div>

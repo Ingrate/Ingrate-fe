@@ -62,12 +62,12 @@ function App() {
   };
 
   // 내 식재료 페이지에서 내용을 수정하는 함수
-  const onUpdate = (e) => {
-    ingreds.map((item) => {
-      if (item.id === e.target.id) {
-        setIngreds(([e.target.id] = e.target.value));
-      }
-    });
+  const onUpdate = (changed) => {
+    setIngreds(
+      ingreds.map((item) =>
+        String(item.id) === String(changed.id) ? changed : item,
+      ),
+    );
   };
 
   // 사용자의 식재료 정보 입력을 반영하는 함수

@@ -1,16 +1,21 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
+function Detail({ setClicked, ingred, onUpdate }) {
   const [editor, setEditor] = useState(false);
+  const [changedIngred, setChangedIngred] = useState(ingred);
+
+  const onChange = (e) => {
+    setChangedIngred({ ...ingred, [e.target.id]: e.target.value });
+  };
 
   const onClickClose = () => {
+    onUpdate(changedIngred);
     setClicked(false);
   };
 
   const onClickEdit = () => {
     setEditor(true);
-    console.log(editor);
   };
 
   const onClickDelete = () => {};
@@ -26,23 +31,25 @@ function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
           <div className="info-section m-auto mt-5 grid grid-cols-3 p-4 pl-16 pr-16 text-4xl font-bold">
             <input
               className="w-full"
+              id="name"
               type="text"
-              value={name}
-              onChange={onUpdate}
+              value={changedIngred.name}
+              onChange={onChange}
             />
             <div className="flex w-full">
               <input
                 className="w-full"
+                id="amount"
                 type="text"
-                value={amount}
-                onChange={onUpdate}
+                value={changedIngred.amount}
+                onChange={onChange}
               />
               <select
                 className="w-full"
                 name="unit"
                 id="unit"
-                value={unit}
-                onChange={onUpdate}
+                value={changedIngred.unit}
+                onChange={onChange}
               >
                 <option value="dan">단</option>
                 <option value="gae">개</option>
@@ -51,16 +58,18 @@ function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
             </div>
             <input
               className="w-full"
+              id="cost"
               type="text"
-              value={cost}
-              onChange={onUpdate}
+              value={changedIngred.cost}
+              onChange={onChange}
             />
           </div>
           <input
-            onChange={onUpdate}
+            onChange={onChange}
             className="m-14 ml-16 mr-16 text-3xl font-bold"
+            id="memo"
             type="text"
-            value={memo}
+            value={changedIngred.memo}
           />
           <div className="button-section absolute bottom-0 right-4 m-9 flex justify-end gap-9">
             <Button text={"수정 완료"} onClick={onClickClose}></Button>
@@ -71,14 +80,16 @@ function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
           className={`${editor ? "hidden" : ""} relative z-10 m-auto mt-81 h-96 w-5/6 rounded-5xl border-2 border-gray-300 bg-white`}
         >
           <div className="info-section m-auto mt-5 grid grid-cols-3 p-4 pl-16 pr-16 text-4xl font-bold">
-            <div>{name}</div>
+            <div>{ingred.name}</div>
             <div>
-              {amount}
-              {unit}
+              {ingred.amount}
+              {ingred.unit}
             </div>
-            <div>{cost}원</div>
+            <div>{ingred.cost}원</div>
           </div>
-          <div className="m-14 ml-16 mr-16 text-3xl font-bold">{memo}</div>
+          <div className="m-14 ml-16 mr-16 text-3xl font-bold">
+            {ingred.memo}
+          </div>
           <div className="button-section absolute bottom-0 right-4 m-9 flex justify-end gap-9">
             <Button text={"닫기"} onClick={onClickClose}></Button>
             <Button text={"수정"} onClick={onClickEdit}></Button>
