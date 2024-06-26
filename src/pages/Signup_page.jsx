@@ -1,11 +1,14 @@
 import Signup from "../components/Signup";
-import Logo from "../components/Logo";
+import Slogan from "../components/Slogan";
 
 function Signup_page({ signup, onChange }) {
   return (
-    <div className="flex h-screen w-screen flex-wrap justify-center gap-32 align-middle">
-      <Logo></Logo>
-      <Signup {...signup} onChange={onChange}></Signup>
+    <div className="m-auto mt-20 flex w-3/4 flex-col">
+      <Slogan></Slogan>
+      <div className="flex flex-wrap justify-between gap-20 align-middle">
+        <div className="m-0 aspect-square w-600 bg-black text-white">로고</div>
+        <Signup {...signup} onChange={onChange}></Signup>
+      </div>
     </div>
   );
 }
