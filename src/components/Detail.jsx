@@ -21,7 +21,7 @@ function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
         className={`absolute left-0 top-0 flex h-screen w-screen bg-black bg-opacity-10 align-middle`}
       >
         <div
-          className={`${editor ? "" : "hidden"} mt-81 rounded-5xl relative z-10 m-auto h-96 w-11/12 border-2 border-gray-300 bg-white`}
+          className={`${editor ? "" : "hidden"} relative z-10 m-auto mt-81 h-96 w-5/6 rounded-5xl border-2 border-gray-300 bg-white`}
         >
           <div className="info-section m-auto mt-5 grid grid-cols-3 p-4 pl-16 pr-16 text-4xl font-bold">
             <input
@@ -68,7 +68,7 @@ function Detail({ setClicked, id, name, amount, unit, cost, memo, onUpdate }) {
           </div>
         </div>
         <div
-          className={`${editor ? "hidden" : ""} mt-81 rounded-5xl relative z-10 m-auto h-96 w-11/12 border-2 border-gray-300 bg-white`}
+          className={`${editor ? "hidden" : ""} relative z-10 m-auto mt-81 h-96 w-5/6 rounded-5xl border-2 border-gray-300 bg-white`}
         >
           <div className="info-section m-auto mt-5 grid grid-cols-3 p-4 pl-16 pr-16 text-4xl font-bold">
             <div>{name}</div>

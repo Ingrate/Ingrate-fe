@@ -19,7 +19,7 @@ function MyList({ id, name, amount, unit, cost, memo, onUpdate }) {
         ></Detail>
       </div>
       <div
-        className={`m-auto mt-8 grid w-11/12 grid-cols-3 rounded-4xl border-2 p-5 pl-16 pr-16 text-4xl ${clicked ? "border-amber-400 bg-amber-300" : "bg-transparent"}`}
+        className={`m-auto mt-8 grid w-5/6 grid-cols-3 rounded-4xl border-2 p-5 pl-16 pr-16 text-4xl ${clicked ? "border-amber-400 bg-amber-300" : "bg-transparent"}`}
         onClick={() => {
           setClicked(true);
         }}

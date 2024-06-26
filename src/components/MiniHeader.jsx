@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="Header flex">
       <h1
-        className="mt-18 mb-28 ml-3 cursor-pointer text-center text-8xl font-bold"
+        className="mt-18 ml-3 cursor-pointer text-center text-8xl font-bold"
         onClick={() => {
           nav("/main");
         }}
