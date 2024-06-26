@@ -100,11 +100,22 @@ function App() {
     console.log(login);
   };
 
+  const onChangeRememberMe = (e) => {
+    setLogin({ ...login, rememberMe: e.target.checked });
+    console.log(login);
+  };
+
   return (
     <Routes>
       <Route
         path="/"
-        element={<Login_page {...login} onChange={onChangeLogin} />}
+        element={
+          <Login_page
+            {...login}
+            onChange={onChangeLogin}
+            onClick={onChangeRememberMe}
+          />
+        }
       ></Route>
       <Route
         path="/signup"
