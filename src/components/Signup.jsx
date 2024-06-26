@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 function Signup({ username, password, passwordCheck, onChange }) {
   return (
-    <div className="Signup">
-      <div className="signup-wrapper">
+    <div className="Signup m-auto ml-0 flex">
+      <div className="signup-wrapper m-auto flex flex-col">
         <input
           type="text"
           id="username"

@@ -11,6 +11,11 @@ export default {
         500: "500px",
         600: "600px",
       },
+      height: {
+        400: "400px",
+        500: "500px",
+        600: "600px",
+      },
       fontSize: {
         header: "7rem",
       },
