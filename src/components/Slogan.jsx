@@ -1,4 +1,4 @@
-function Logo() {
+function Slogan() {
   return (
     <div className="m-auto mr-0 flex flex-col">
       <h1 className="mb-3 text-6xl font-bold">Ingrate</h1>
@@ -8,4 +8,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default Slogan;
