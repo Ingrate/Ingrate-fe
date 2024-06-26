@@ -18,6 +18,7 @@ function Detail({ setClicked, ingred, onUpdate, onDelete }) {
   const onClickClose = () => {
     setEditor(false);
     setClicked(false);
+    setChangedIngred(ingred);
   };
 
   const onClickEdit = () => {
