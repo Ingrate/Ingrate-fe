@@ -46,6 +46,16 @@ function App() {
     cost: "",
     memo: "",
   });
+  const [signup, setSignup] = useState({
+    username: "",
+    password: "",
+    passwordCheck: "",
+  });
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+    rememberMe: false,
+  });
   const nav = useNavigate();
 
   // 내 식재료로 등록하는 함수
@@ -71,7 +81,7 @@ function App() {
   };
 
   // 사용자의 식재료 정보 입력을 반영하는 함수
-  const onChange = (e) => {
+  const onChangeIngred = (e) => {
     setIngred({ ...ingred, [e.target.id]: e.target.value });
     console.log(ingred);
   };
@@ -81,13 +91,22 @@ function App() {
     setIngreds(ingreds.filter((item) => String(item.id) !== String(del.id)));
   };
 
+  const onChangeSignup = (e) => {
+    setSignup({ ...signup, [e.target.id]: e.target.value });
+  };
+
   return (
     <Routes>
       <Route path="/" element={<Login_page />}></Route>
-      <Route path="/signup" element={<Signup_page />}></Route>
+      <Route
+        path="/signup"
+        element={<Signup_page {...signup} onChange={onChangeSignup} />}
+      ></Route>
       <Route
         path="/main"
-        element={<Main_page onChange={onChange} onRegister={onRegister} />}
+        element={
+          <Main_page onChange={onChangeIngred} onRegister={onRegister} />
+        }
       ></Route>
       <Route path="/user" element={<User_page />}></Route>
       <Route path="/rate" element={<Rate_page ingred={ingred} />}></Route>
@@ -96,7 +115,7 @@ function App() {
         element={
           <Save_page
             ingred={ingred}
-            onChange={onChange}
+            onChange={onChangeIngred}
             onRegister={onRegister}
           />
         }
@@ -107,7 +126,7 @@ function App() {
           <Myingredients_page
             ingreds={ingreds}
             onUpdate={onUpdate}
-            onChange={onChange}
+            onChange={onChangeIngred}
             onDelete={onDelete}
           />
         }
