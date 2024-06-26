@@ -95,9 +95,17 @@ function App() {
     setSignup({ ...signup, [e.target.id]: e.target.value });
   };
 
+  const onChangeLogin = (e) => {
+    setLogin({ ...login, [e.target.id]: e.target.value });
+    console.log(login);
+  };
+
   return (
     <Routes>
-      <Route path="/" element={<Login_page />}></Route>
+      <Route
+        path="/"
+        element={<Login_page {...login} onChange={onChangeLogin} />}
+      ></Route>
       <Route
         path="/signup"
         element={<Signup_page {...signup} onChange={onChangeSignup} />}
