@@ -8,6 +8,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import Save_page from "./pages/Save_page";
 import Myingredients_page from "./pages/Myingredients_page";
+import Navbar from "./components/Navbar";
 
 const mokeIngreds = [
   {
@@ -105,52 +106,65 @@ function App() {
     console.log(login);
   };
 
+  // TODO: navbar에 username 표시 횡단 관심사 분리 필요
+  // TODO: navbar를 outlet 사용해서 분리 필요
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Login_page
-            {...login}
-            onChange={onChangeLogin}
-            onClick={onChangeRememberMe}
-          />
-        }
-      ></Route>
-      <Route
-        path="/signup"
-        element={<Signup_page {...signup} onChange={onChangeSignup} />}
-      ></Route>
-      <Route
-        path="/main"
-        element={
-          <Main_page onChange={onChangeIngred} onRegister={onRegister} />
-        }
-      ></Route>
-      <Route path="/user" element={<User_page />}></Route>
-      <Route path="/rate" element={<Rate_page ingred={ingred} />}></Route>
-      <Route
-        path="/save"
-        element={
-          <Save_page
-            ingred={ingred}
-            onChange={onChangeIngred}
-            onRegister={onRegister}
-          />
-        }
-      ></Route>
-      <Route
-        path="/myIngredients"
-        element={
-          <Myingredients_page
-            ingreds={ingreds}
-            onUpdate={onUpdate}
-            onChange={onChangeIngred}
-            onDelete={onDelete}
-          />
-        }
-      ></Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Login_page
+              {...login}
+              onChange={onChangeLogin}
+              onClick={onChangeRememberMe}
+            />
+          }
+        ></Route>
+        <Route
+          path="/signup"
+          element={<Signup_page {...signup} onChange={onChangeSignup} />}
+        ></Route>
+        <Route
+          path="/main"
+          element={
+            <Main_page
+              onChange={onChangeIngred}
+              onRegister={onRegister}
+              username={login.username}
+            />
+          }
+        ></Route>
+        <Route path="/user" element={<User_page />}></Route>
+        <Route
+          path="/rate"
+          element={<Rate_page ingred={ingred} username={login.username} />}
+        ></Route>
+        <Route
+          path="/save"
+          element={
+            <Save_page
+              ingred={ingred}
+              onChange={onChangeIngred}
+              onRegister={onRegister}
+              username={login.username}
+            />
+          }
+        ></Route>
+        <Route
+          path="/myIngredients"
+          element={
+            <Myingredients_page
+              ingreds={ingreds}
+              onUpdate={onUpdate}
+              onChange={onChangeIngred}
+              onDelete={onDelete}
+              username={login.username}
+            />
+          }
+        ></Route>
+      </Routes>
+    </>
   );
 }
 

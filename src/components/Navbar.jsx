@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 // import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ user }) {
   return (
     <div className="Navbar">
       <div className="bar-wrapper flex h-8 justify-end gap-10 p-6 pr-10 text-lg">
@@ -9,7 +9,7 @@ function Navbar() {
           to="/user"
           className={({ isActive }) => (isActive ? "isActive" : "notActive")}
         >
-          사용자명
+          {user}
         </NavLink>
         <NavLink
           to="/myIngredients"

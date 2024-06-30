@@ -2,11 +2,18 @@ import Navbar from "../components/Navbar";
 import MiniHeader from "../components/MiniHeader";
 import MyIngred from "../components/MyIngred";
 import Divider from "../components/Divider";
+import { useEffect, useState } from "react";
 
-function Myingredients_page({ ingreds, onUpdate, onDelete }) {
+function Myingredients_page({ ingreds, onUpdate, onDelete, username }) {
+  const [user, setUser] = useState(username);
+
+  useEffect(() => {
+    setUser(username);
+  }, [username]);
+
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar user={user}></Navbar>
       <div className="m-auto mb-36 flex w-11/12">
         <MiniHeader></MiniHeader>
       </div>
