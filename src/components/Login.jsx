@@ -1,7 +1,9 @@
 // import "./Login.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login({ username, password, onChange, onClick }) {
+  const nav = useNavigate();
+
   return (
     <div className="Login mr-40 flex">
       <div className="login-wrapper m-auto flex w-400 flex-col gap-2.5">
@@ -25,7 +27,12 @@ function Login({ username, password, onChange, onClick }) {
           <input type="checkbox" onChange={onClick} />
           <div>자동 로그인</div>
         </div>
-        <button className="mt-10 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold">
+        <button
+          className="mt-10 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold"
+          onClick={() => {
+            nav("/main");
+          }}
+        >
           로그인
         </button>
         <div className="to-signup flex gap-2 pl-2">
