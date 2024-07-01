@@ -58,7 +58,7 @@ function Search({ onChange }) {
   const filteredDatas = getFilteredData();
   return (
     <div className="Search flex flex-col gap-4">
-      <div className="search-wrapper w-600 rounded-4xl m-auto flex flex-col justify-center gap-4 bg-amber-300 p-4 align-middle">
+      <div className="search-wrapper m-auto flex w-600 flex-col justify-center gap-4 rounded-4xl bg-amber-300 p-4 align-middle">
         <input
           className="bg-transparent p-1 text-center text-2xl outline-none"
           id="name"
@@ -86,10 +86,10 @@ function Search({ onChange }) {
         className={`list-wrapper m-4 flex flex-col gap-7 ${select ? "" : "hidden"}`}
       >
         <InputValue onChange={onChange}></InputValue>
-        <div className="w-600 m-auto flex justify-between p-1">
+        <div className="m-auto flex w-600 justify-between p-1">
           <Button
             text="뒤로가기"
-            color="grey"
+            color="gray"
             onClick={() => {
               setSearch("");
               onClickSearch();
@@ -98,14 +98,14 @@ function Search({ onChange }) {
           <div className="flex gap-6">
             <Button
               text="비교하기"
-              color="grey"
+              color="gray"
               onClick={() => {
                 nav("/rate");
               }}
             ></Button>
             <Button
               text="등록하기"
-              color="grey"
+              color="gray"
               onClick={() => {
                 nav("/save");
               }}
