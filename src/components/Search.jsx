@@ -22,6 +22,22 @@ const datas = [
     id: 3,
     value: "양파",
   },
+  {
+    id: 4,
+    value: "쪽파",
+  },
+  {
+    id: 5,
+    value: "대파",
+  },
+  {
+    id: 6,
+    value: "파프리카 파우더",
+  },
+  {
+    id: 7,
+    value: "베이킹 파우더",
+  },
 ];
 
 function Search({ onChange }) {
@@ -58,7 +74,7 @@ function Search({ onChange }) {
   const filteredDatas = getFilteredData();
   return (
     <div className="Search flex flex-col gap-4">
-      <div className="search-wrapper m-auto flex w-600 flex-col justify-center gap-4 rounded-4xl bg-amber-300 p-4 align-middle">
+      <div className="search-wrapper m-auto flex w-600 flex-col justify-center rounded-4xl bg-amber-300 p-4 align-middle">
         <input
           className="bg-transparent p-1 text-center text-2xl placeholder-stone-400 outline-none"
           id="name"
@@ -69,7 +85,7 @@ function Search({ onChange }) {
           placeholder="식재료 이름으로 검색하세요"
         />
         <div
-          className={`list-wrapper ${select ? "hidden" : ""} rounded-3xl bg-white text-lg`}
+          className={`list-wrapper ${select ? "hidden" : ""} ${filteredDatas.length ? "mt-4" : ""} max-h-64 overflow-y-auto rounded-3xl bg-white text-lg`}
         >
           {filteredDatas.map((data) => {
             return (
