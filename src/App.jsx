@@ -135,7 +135,10 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/user" element={<User_page />}></Route>
+        <Route
+          path="/user"
+          element={<User_page username={login.username} />}
+        ></Route>
         <Route
           path="/rate"
           element={<Rate_page ingred={ingred} username={login.username} />}
