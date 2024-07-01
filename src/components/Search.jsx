@@ -60,7 +60,7 @@ function Search({ onChange }) {
     <div className="Search flex flex-col gap-4">
       <div className="search-wrapper m-auto flex w-600 flex-col justify-center gap-4 rounded-4xl bg-amber-300 p-4 align-middle">
         <input
-          className="bg-transparent p-1 text-center text-2xl outline-none"
+          className="bg-transparent p-1 text-center text-2xl placeholder-stone-400 outline-none"
           id="name"
           value={search}
           onChange={onChangeSearch}

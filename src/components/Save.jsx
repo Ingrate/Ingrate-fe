@@ -24,7 +24,7 @@ function Save({ name, amount, unit, cost, onChange, onRegister }) {
         onChange={onChangeMemo}
         type="text"
         placeholder="메모"
-        className="m-auto h-52 w-600 rounded-4xl bg-amber-300 p-8 pl-10 pr-10 text-center align-middle text-2xl"
+        className="m-auto h-52 w-600 rounded-4xl bg-amber-300 p-8 pl-10 pr-10 text-center align-middle text-2xl placeholder-stone-400"
       ></input>
       <div className="flex justify-center">
         <Button text="저장" color="gray" onClick={onRegister}></Button>
