@@ -4,7 +4,7 @@ import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
-function Confirm_page({ username }) {
+function Change_pw_page({ username }) {
   const nav = useNavigate();
   const [user, setUser] = useState(username);
 
@@ -16,11 +16,17 @@ function Confirm_page({ username }) {
     <>
       <Navbar user={user}></Navbar>
       <UserHeader user={user}></UserHeader>
-      <div className="m-auto mt-6 flex w-11/12 flex-col gap-32">
+      <div className="m-auto mt-6 flex w-11/12 flex-col gap-20">
         <h3 className="text-5xl">비밀번호 변경</h3>
-        <div className="flex flex-col gap-2">
-          <div className="ml-2 text-xl font-bold">기존 비밀번호</div>
-          <input type="text" className="h-12 w-80 rounded-3xl border-2" />
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-2">
+            <div className="ml-2 text-xl font-bold">새로운 비밀번호</div>
+            <input type="text" className="h-12 w-80 rounded-3xl border-2" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="ml-2 text-xl font-bold">새로운 비밀번호 확인</div>
+            <input type="text" className="h-12 w-80 rounded-3xl border-2" />
+          </div>
         </div>
       </div>
       <div className="button-section absolute bottom-6 left-1/2 m-auto flex w-11/12 -translate-x-1/2 -translate-y-1/2 justify-start gap-6">
@@ -31,9 +37,9 @@ function Confirm_page({ username }) {
           }}
         ></Button>
         <Button
-          text={"확인"}
+          text={"변경하기"}
           onClick={() => {
-            nav("/change-password");
+            nav("/user");
           }}
         ></Button>
       </div>
@@ -41,4 +47,4 @@ function Confirm_page({ username }) {
   );
 }
 
-export default Confirm_page;
+export default Change_pw_page;
