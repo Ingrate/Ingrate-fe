@@ -43,7 +43,7 @@ function User_page({ username }) {
           <Button
             text={"비밀번호 변경"}
             onClick={() => {
-              nav("/change-password");
+              nav("/confirm");
             }}
           ></Button>
           <Button
