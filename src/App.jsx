@@ -141,10 +141,7 @@ function App() {
           path="/user"
           element={<User_page username={login.username} />}
         ></Route>
-        <Route
-          path="/confirm"
-          element={<Confirm_page username={login.username} />}
-        ></Route>
+        <Route path="/confirm" element={<Confirm_page login={login} />}></Route>
         <Route
           path="/change-password"
           element={<Change_pw_page username={login.username} />}
