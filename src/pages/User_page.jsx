@@ -2,8 +2,10 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function User_page({ username }) {
+  const nav = useNavigate();
   const [user, setUser] = useState(username);
 
   useEffect(() => {
@@ -31,10 +33,25 @@ function User_page({ username }) {
         </div>
       </div>
       <div className="button-section absolute bottom-6 left-1/2 m-auto flex w-11/12 -translate-x-1/2 -translate-y-1/2 justify-between p-3 pb-0">
-        <Button text={"뒤로가기"}></Button>
+        <Button
+          text={"뒤로가기"}
+          onClick={() => {
+            nav(-1);
+          }}
+        ></Button>
         <div className="flex gap-6">
-          <Button text={"비밀번호 변경"}></Button>
-          <Button text={"회원 탈퇴"}></Button>
+          <Button
+            text={"비밀번호 변경"}
+            onClick={() => {
+              nav("/change-password");
+            }}
+          ></Button>
+          <Button
+            text={"회원 탈퇴"}
+            onClick={() => {
+              nav("/cancel");
+            }}
+          ></Button>
         </div>
       </div>
     </>
