@@ -22,7 +22,9 @@ function Myingredients_page({ ingreds, onUpdate, onDelete, username }) {
         <div>양</div>
         <div>가격</div>
       </div>
-      <Divider></Divider>
+      <div className="m-auto flex w-5/6">
+        <Divider></Divider>
+      </div>
       <MyIngred
         ingreds={ingreds}
         onUpdate={onUpdate}
