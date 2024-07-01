@@ -4,7 +4,7 @@ import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
-function Change_pw_page({ username }) {
+function Confirm_page({ username }) {
   const nav = useNavigate();
   const [user, setUser] = useState(username);
 
@@ -41,4 +41,4 @@ function Change_pw_page({ username }) {
   );
 }
 
-export default Change_pw_page;
+export default Confirm_page;

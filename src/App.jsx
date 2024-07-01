@@ -8,7 +8,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import Save_page from "./pages/Save_page";
 import Myingredients_page from "./pages/Myingredients_page";
-import Change_pw_page from "./pages/Change_pw_page";
+import Confirm_page from "./pages/Confirm_page";
 import Cancel_page from "./pages/Cancel_page";
 
 const mokeIngreds = [
@@ -141,8 +141,8 @@ function App() {
           element={<User_page username={login.username} />}
         ></Route>
         <Route
-          path="/change-password"
-          element={<Change_pw_page username={login.username} />}
+          path="/confirm"
+          element={<Confirm_page username={login.username} />}
         ></Route>
         <Route
           path="/cancel"
