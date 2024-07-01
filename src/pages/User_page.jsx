@@ -32,7 +32,7 @@ function User_page({ username }) {
           <div className="text-7xl font-bold">마트 대마왕</div>
         </div>
       </div>
-      <div className="button-section absolute bottom-6 left-1/2 m-auto flex w-11/12 -translate-x-1/2 -translate-y-1/2 justify-between p-3 pb-0">
+      <div className="button-section absolute bottom-6 left-1/2 m-auto flex w-11/12 -translate-x-1/2 -translate-y-1/2 justify-between">
         <Button
           text={"뒤로가기"}
           onClick={() => {
