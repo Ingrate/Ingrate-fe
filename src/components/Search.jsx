@@ -1,4 +1,4 @@
-// import "./Search.css";
+import "./Search.css";
 import List from "./List";
 import InputValue from "./InputValue";
 import { useState } from "react";
@@ -85,8 +85,11 @@ function Search({ onChange }) {
           placeholder="식재료 이름으로 검색하세요"
         />
         <div
-          className={`list-wrapper ${select ? "hidden" : ""} ${filteredDatas.length ? "mt-4" : ""} max-h-64 overflow-y-auto rounded-3xl bg-white text-lg`}
+          className={`list-wrapper ${select ? "hidden" : ""} ${filteredDatas.length ? "scroll-gradient relative mt-4" : ""} max-h-64 overflow-y-auto rounded-3xl bg-white text-lg`}
         >
+          <div
+            className={`${filteredDatas.length ? "" : "hidden"} pointer-events-none sticky top-0 h-8 bg-gradient-to-b from-white to-transparent`}
+          ></div>
           {filteredDatas.map((data) => {
             return (
               <List
@@ -96,6 +99,9 @@ function Search({ onChange }) {
               ></List>
             );
           })}
+          <div
+            className={`${filteredDatas.length ? "" : "hidden"} pointer-events-none sticky bottom-0 h-8 bg-gradient-to-t from-white to-transparent`}
+          ></div>
         </div>
       </div>
       <div
