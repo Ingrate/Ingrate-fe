@@ -140,8 +140,14 @@ function App() {
           path="/user"
           element={<User_page username={login.username} />}
         ></Route>
-        <Route path="/change-password" element={<Change_pw_page />}></Route>
-        <Route path="/cancel" element={<Cancel_page />}></Route>
+        <Route
+          path="/change-password"
+          element={<Change_pw_page username={login.username} />}
+        ></Route>
+        <Route
+          path="/cancel"
+          element={<Cancel_page username={login.username} />}
+        ></Route>
         <Route
           path="/rate"
           element={<Rate_page ingred={ingred} username={login.username} />}
