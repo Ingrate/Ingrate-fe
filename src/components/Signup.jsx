@@ -18,7 +18,7 @@ function Signup({ username, password, passwordCheck, onChange }) {
         <div className="pl-2 text-xl font-bold">비밀번호</div>
         <input
           className="mb-5 h-14 rounded-3xl border-2 border-gray-200 pl-5 pr-5 text-lg"
-          type="text"
+          type="password"
           id="password"
           value={password}
           onChange={onChange}
@@ -26,7 +26,7 @@ function Signup({ username, password, passwordCheck, onChange }) {
         <div className="pl-2 text-xl font-bold">비밀번호 확인</div>
         <input
           className="mb-5 h-14 rounded-3xl border-2 border-gray-200 p-5 text-lg"
-          type="text"
+          type="password"
           id="passwordCheck"
           value={passwordCheck}
           onChange={onChange}

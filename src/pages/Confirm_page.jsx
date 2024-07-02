@@ -36,7 +36,7 @@ function Confirm_page({ login }) {
         <div className="flex flex-col gap-2">
           <div className="ml-2 text-xl font-bold">기존 비밀번호</div>
           <input
-            type="text"
+            type="password"
             value={oldPassword}
             onChange={onChangeConfirm}
             className="h-12 w-80 rounded-3xl border-2"

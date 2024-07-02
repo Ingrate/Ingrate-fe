@@ -21,11 +21,11 @@ function Change_pw_page({ username }) {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <div className="ml-2 text-xl font-bold">새로운 비밀번호</div>
-            <input type="text" className="h-12 w-80 rounded-3xl border-2" />
+            <input type="password" className="h-12 w-80 rounded-3xl border-2" />
           </div>
           <div className="flex flex-col gap-2">
             <div className="ml-2 text-xl font-bold">새로운 비밀번호 확인</div>
-            <input type="text" className="h-12 w-80 rounded-3xl border-2" />
+            <input type="password" className="h-12 w-80 rounded-3xl border-2" />
           </div>
         </div>
       </div>

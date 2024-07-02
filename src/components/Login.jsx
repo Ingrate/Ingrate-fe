@@ -18,7 +18,7 @@ function Login({ username, password, onChange, onClick }) {
         <div className="pl-2 text-xl font-bold">비밀번호</div>
         <input
           className="mb-2 h-14 rounded-3xl border-2 border-gray-200 pl-5 pr-5 text-lg"
-          type="text"
+          type="password"
           id="password"
           value={password}
           onChange={onChange}
