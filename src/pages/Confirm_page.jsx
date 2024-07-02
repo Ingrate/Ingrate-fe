@@ -39,7 +39,7 @@ function Confirm_page({ login }) {
             type="password"
             value={oldPassword}
             onChange={onChangeConfirm}
-            className="h-12 w-80 rounded-3xl border-2"
+            className="h-12 w-80 rounded-3xl border-2 pl-5 pr-5"
           />
         </div>
       </div>
