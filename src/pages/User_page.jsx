@@ -3,33 +3,46 @@ import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function User_page({ username }) {
   const nav = useNavigate();
-  const [user, setUser] = useState(username);
+  const [name, setName] = useState(username);
+  const [user, setUser] = useState({
+    username: "",
+    posts: "",
+    rank: "",
+    point: "",
+  });
 
   useEffect(() => {
-    setUser(username);
+    setName(username);
   }, [username]);
+
+  useEffect(() => {
+    axios.get("/member").then((response) => {
+      setUser(response.data);
+    });
+  }, []);
 
   return (
     <>
-      <Navbar user={user}></Navbar>
-      <UserHeader user={user}></UserHeader>
+      <Navbar user={name}></Navbar>
+      <UserHeader user={name}></UserHeader>
       <div className="info-section m-auto flex w-11/12 p-8 pt-16">
         <div className="left-section flex flex-1 flex-col gap-10 text-3xl">
           <div className="flex gap-20">
             <div>작성글</div>
-            <div>N</div>
+            <div>{user.posts}</div>
           </div>
           <div className="flex gap-20">
             <div>포인트</div>
-            <div>N</div>
+            <div>{user.point}</div>
           </div>
         </div>
         <div className="right-section m-auto flex flex-1 flex-col gap-3">
           <div className="pl-1 text-2xl">당신의 등급은</div>
-          <div className="text-7xl font-bold">마트 대마왕</div>
+          <div className="text-7xl font-bold">{user.rank}</div>
         </div>
       </div>
       <div className="button-section absolute bottom-6 left-1/2 m-auto flex w-11/12 -translate-x-1/2 -translate-y-1/2 justify-between">
