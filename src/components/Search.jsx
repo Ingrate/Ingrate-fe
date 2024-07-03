@@ -1,49 +1,27 @@
 import "./Search.css";
 import List from "./List";
 import InputValue from "./InputValue";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-
-const datas = [
-  {
-    id: 0,
-    value: "파",
-  },
-  {
-    id: 1,
-    value: "파프리카",
-  },
-  {
-    id: 2,
-    value: "배추",
-  },
-  {
-    id: 3,
-    value: "양파",
-  },
-  {
-    id: 4,
-    value: "쪽파",
-  },
-  {
-    id: 5,
-    value: "대파",
-  },
-  {
-    id: 6,
-    value: "파프리카 파우더",
-  },
-  {
-    id: 7,
-    value: "베이킹 파우더",
-  },
-];
+import axios from "axios";
 
 function Search({ onChange }) {
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState(false);
   const nav = useNavigate();
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/ingredient/unit")
+      .then((response) => {
+        setDatas(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   const onClickSearch = () => {
     if (select === true) {
