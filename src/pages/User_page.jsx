@@ -20,9 +20,14 @@ function User_page({ username }) {
   }, [username]);
 
   useEffect(() => {
-    axios.get("/member").then((response) => {
-      setUser(response.data);
-    });
+    axios
+      .get("/member")
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
   return (
