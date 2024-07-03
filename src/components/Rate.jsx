@@ -1,9 +1,23 @@
 import Info from "./Info";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
 function Rate({ ingred }) {
+  const [rate, setRate] = useState(0);
   const nav = useNavigate();
+
+  const addPost = () => {
+    axios
+      .post("/ingredient/rate", ingred)
+      .then((response) => {
+        setRate(response.data.rate);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   return (
     <div className="Rate">
@@ -11,8 +25,9 @@ function Rate({ ingred }) {
         <Info {...ingred}></Info>
       </div>
       <div className="rate-section">
-        <h3>99점입니다!</h3>
+        <h3>{rate}점입니다!</h3>
         <div>나쁘지 않은데요?</div>
+        {/* TODO: rate 범위에 따라 다른 text 출력하도록 수정 필요 */}
         <Button
           text="메인으로"
           onClick={() => {
