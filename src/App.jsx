@@ -156,7 +156,7 @@ function App() {
         <Route path="/confirm" element={<Confirm_page login={login} />}></Route>
         <Route
           path="/change-password"
-          element={<Change_pw_page username={login.username} />}
+          element={<Change_pw_page login={login} />}
         ></Route>
         <Route
           path="/cancel"
