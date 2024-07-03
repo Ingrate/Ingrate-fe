@@ -62,6 +62,7 @@ function App() {
   });
   const nav = useNavigate();
 
+  // 사용자 입력 식재료 배열 get
   useEffect(() => {
     axios
       .get("/ingredient")
@@ -73,8 +74,24 @@ function App() {
       });
   }, []);
 
+  // 새로운 식재료 정보 post
+  const postIngredient = () => {
+    axios
+      .post("/ingredient", ingred)
+      .then((response) => {
+        // 요청이 성공한 경우
+        if (response.status === 200) {
+          console.log("POST request successful with status 200");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
   // 내 식재료로 등록하는 함수
   const onRegister = () => {
+    postIngredient();
     setIngreds([{ id: ingredsRef.current++, ...ingred }, ...ingreds]);
     setIngred({
       name: "",
