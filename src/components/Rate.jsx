@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
-function Rate({ ingred }) {
+function Rate({ ingred, initIngred }) {
   const [rate, setRate] = useState(0);
   const nav = useNavigate();
 
@@ -32,6 +32,7 @@ function Rate({ ingred }) {
           text="메인으로"
           onClick={() => {
             nav("/main");
+            initIngred();
           }}
         ></Button>
         <Button

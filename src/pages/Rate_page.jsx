@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Rate from "../components/Rate";
 
-function Rate_page({ ingred, username }) {
+function Rate_page({ ingred, initIngred, username }) {
   const [user, setUser] = useState(username);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Rate_page({ ingred, username }) {
   return (
     <>
       <Navbar user={user}></Navbar>
-      <Rate ingred={ingred}></Rate>
+      <Rate ingred={ingred} initIngred={initIngred}></Rate>
     </>
   );
 }

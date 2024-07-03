@@ -89,6 +89,16 @@ function App() {
     console.log(ingred);
   };
 
+  const initIngred = () => {
+    setIngred({
+      name: "",
+      amount: "",
+      unit: "",
+      cost: "",
+      memo: "",
+    });
+  };
+
   // 내 식재료 페이지에서 식재료 정보를 삭제하는 함수
   const onDelete = (del) => {
     setIngreds(ingreds.filter((item) => String(item.id) !== String(del.id)));
@@ -152,7 +162,13 @@ function App() {
         ></Route>
         <Route
           path="/rate"
-          element={<Rate_page ingred={ingred} username={login.username} />}
+          element={
+            <Rate_page
+              ingred={ingred}
+              initIngred={initIngred}
+              username={login.username}
+            />
+          }
         ></Route>
         <Route
           path="/save"
