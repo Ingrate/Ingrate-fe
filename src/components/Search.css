@@ -1,31 +1,19 @@
-.scroll-gradient {
-  position: relative;
+/* 스크롤바 스타일 변경 */
+div::-webkit-scrollbar {
+  width: 6px; /* 스크롤바 너비 */
+  height: 50px;
 }
 
-.scroll-gradient::before,
-.scroll-gradient::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2rem; /* Adjust as needed */
-  pointer-events: none;
+div::-webkit-scrollbar-track {
+  height: 200px;
+  background: transparent; /* 스크롤바 트랙 색상 */
 }
 
-.scroll-gradient::before {
-  top: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+div::-webkit-scrollbar-thumb {
+  background-color: rgb(168 162 158); /* 스크롤바 색상 */
+  border-radius: 10px; /* 스크롤바 모서리 둥글게 */
 }
 
-.scroll-gradient::after {
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+div::-webkit-scrollbar-thumb:hover {
+  background: rgb(120 113 108); /* 스크롤바 색상 (hover 시) */
 }
