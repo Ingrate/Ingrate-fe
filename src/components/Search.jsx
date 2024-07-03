@@ -45,7 +45,7 @@ function Search({ onChange }) {
       return [];
     }
     return datas.filter((data) =>
-      data.value.toLowerCase().includes(search.toLowerCase()),
+      data.name.toLowerCase().includes(search.toLowerCase()),
     );
   };
 
@@ -68,8 +68,8 @@ function Search({ onChange }) {
           {filteredDatas.map((data) => {
             return (
               <List
-                key={data.id}
-                value={data.value}
+                key={data.name}
+                value={data.name}
                 onClick={onClickList}
               ></List>
             );
