@@ -2,13 +2,13 @@ import Info from "./Info";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Rate({ ingred, initIngred }) {
-  const [rate, setRate] = useState(0);
   const nav = useNavigate();
+  const [rate, setRate] = useState(0);
 
-  const addPost = () => {
+  useEffect(() => {
     axios
       .post("/ingredient/rate", ingred)
       .then((response) => {
@@ -17,7 +17,7 @@ function Rate({ ingred, initIngred }) {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  };
+  }, []);
 
   return (
     <div className="Rate">
