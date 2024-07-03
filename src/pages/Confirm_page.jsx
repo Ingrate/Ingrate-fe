@@ -3,28 +3,35 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Confirm_page({ login }) {
   const nav = useNavigate();
   const [user, setUser] = useState(login.username);
-  const [oldPassword, setOldPassword] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     setUser(login.username);
   }, [login.username]);
 
   const onChangeConfirm = (e) => {
-    setOldPassword(e.target.value);
-    console.log(oldPassword);
+    setPassword(e.target.value);
+    console.log(password);
   };
 
   const onClickButton = () => {
-    if (String(oldPassword) === String(login.password)) {
-      console.log("확인되었습니다.");
-      nav("/change-password");
-    } else {
-      console.log("올바르지 않은 비밀번호입니다.");
-    }
+    axios
+      .post("/member", { password: password })
+      .then((response) => {
+        if (response.data.isCorrect) {
+          nav("/change-password");
+        } else {
+          alert("올바르지 않은 비밀번호입니다.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   return (
@@ -37,7 +44,7 @@ function Confirm_page({ login }) {
           <div className="ml-2 text-xl font-bold">기존 비밀번호</div>
           <input
             type="password"
-            value={oldPassword}
+            value={password}
             onChange={onChangeConfirm}
             className="h-12 w-80 rounded-3xl border-2 pl-5 pr-5"
           />
