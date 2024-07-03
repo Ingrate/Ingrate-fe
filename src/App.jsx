@@ -13,33 +13,6 @@ import Cancel_page from "./pages/Cancel_page";
 import Change_pw_page from "./pages/Change_pw_page";
 import axios from "axios";
 
-const mokeIngreds = [
-  {
-    id: 2,
-    name: "파",
-    amount: 1,
-    unit: "단",
-    cost: "2100",
-    memo: "집 앞 마트",
-  },
-  {
-    id: 1,
-    name: "양파",
-    amount: 400,
-    unit: "g",
-    cost: "5600",
-    memo: "집 앞 마트",
-  },
-  {
-    id: 0,
-    name: "파프리카",
-    amount: 300,
-    unit: "g",
-    cost: "3000",
-    memo: "GS 더프레시",
-  },
-];
-
 function App() {
   const ingredsRef = useRef(3);
   const [ingreds, setIngreds] = useState([]);
