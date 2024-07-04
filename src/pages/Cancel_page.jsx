@@ -3,14 +3,35 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Cancel_page({ username }) {
   const nav = useNavigate();
   const [user, setUser] = useState(username);
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     setUser(username);
   }, [username]);
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onClickButton = () => {
+    axios
+      .delete("/member", { password: password })
+      .then((response) => {
+        if (response.data.isCorrect) {
+          nav("/");
+        } else {
+          alert("올바르지 않은 비밀번호입니다.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   return (
     <>
@@ -22,6 +43,8 @@ function Cancel_page({ username }) {
           <div className="ml-2 text-xl font-bold">비밀번호</div>
           <input
             type="password"
+            value={password}
+            onChange={onChangePassword}
             className="h-12 w-80 rounded-3xl border-2 pl-5 pr-5"
           />
         </div>
@@ -36,7 +59,7 @@ function Cancel_page({ username }) {
         <Button
           text={"탈퇴하기"}
           onClick={() => {
-            nav("/");
+            onClickButton;
           }}
         ></Button>
       </div>
