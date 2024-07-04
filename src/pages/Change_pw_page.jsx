@@ -25,7 +25,7 @@ function Change_pw_page({ login }) {
       .then((response) => {
         // 요청이 성공한 경우
         if (response.status === 200) {
-          console.log("POST request successful with status 200");
+          console.log("PUT request successful with status 200");
           nav("/user");
         }
       })
