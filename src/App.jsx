@@ -115,6 +115,19 @@ function App() {
     console.log(login);
   };
 
+  const postAuthLogin = () => {
+    axios
+      .post("/auth/login", login)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("POST request successful with status 200");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
   const onChangeRememberMe = (e) => {
     setLogin({ ...login, rememberMe: e.target.checked });
     console.log(login);
@@ -132,6 +145,7 @@ function App() {
               {...login}
               onChange={onChangeLogin}
               onClick={onChangeRememberMe}
+              postAuthLogin={postAuthLogin}
             />
           }
         ></Route>

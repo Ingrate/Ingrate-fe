@@ -1,7 +1,7 @@
 // import "./Login.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-function Login({ username, password, onChange, onClick }) {
+function Login({ username, password, onChange, onClick, postAuthLogin }) {
   const nav = useNavigate();
 
   return (
@@ -30,6 +30,7 @@ function Login({ username, password, onChange, onClick }) {
         <button
           className="mt-10 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold"
           onClick={() => {
+            postAuthLogin();
             nav("/main");
           }}
         >
