@@ -1,7 +1,21 @@
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 // import "./Navbar.css";
 
 function Navbar({ user }) {
+  const onClickLogout = () => {
+    axios
+      .post("/auth/logout")
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("POST request successful with status 200");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
   return (
     <div className="Navbar">
       <div className="bar-wrapper flex h-8 justify-end gap-10 p-6 pr-10 text-lg">
@@ -19,6 +33,7 @@ function Navbar({ user }) {
         </NavLink>
         <NavLink
           to="/"
+          onClick={onClickLogout}
           className={({ isActive }) => (isActive ? "isActive" : "notActive")}
         >
           로그아웃
