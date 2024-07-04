@@ -110,6 +110,19 @@ function App() {
     setSignup({ ...signup, [e.target.id]: e.target.value });
   };
 
+  const postAuthSignup = () => {
+    axios
+      .post("/auth/login", login)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("POST request successful with status 200");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
   const onChangeLogin = (e) => {
     setLogin({ ...login, [e.target.id]: e.target.value });
     console.log(login);
@@ -151,7 +164,13 @@ function App() {
         ></Route>
         <Route
           path="/signup"
-          element={<Signup_page {...signup} onChange={onChangeSignup} />}
+          element={
+            <Signup_page
+              {...signup}
+              onChange={onChangeSignup}
+              postAuthSignup={postAuthSignup}
+            />
+          }
         ></Route>
         <Route
           path="/main"

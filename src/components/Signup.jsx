@@ -1,7 +1,13 @@
 // import "./Signup.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-function Signup({ username, password, passwordCheck, onChange }) {
+function Signup({
+  username,
+  password,
+  passwordCheck,
+  onChange,
+  postAuthSignup,
+}) {
   const nav = useNavigate();
 
   return (
@@ -34,6 +40,7 @@ function Signup({ username, password, passwordCheck, onChange }) {
         <button
           className="mt-6 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold"
           onClick={() => {
+            postAuthSignup();
             nav("/");
           }}
         >
