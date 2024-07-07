@@ -139,10 +139,14 @@ function App() {
 
   const postAuthLogin = () => {
     axiosInstance
-      .post(`/auth/login`, login)
+      .post(`/auth/login`, {username:login.username, password:login.password})
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");
+
+          const { accessToken } = response.data;
+          localStorage.setItem('accessToken', accessToken);
+
           nav("/main");
 
           // 로그인 시 사용자 등록 식재료 정보 get
@@ -154,8 +158,6 @@ function App() {
             .catch((error) => {
               console.error("Error fetching data:", error);
             });
-          document.cookie =
-            "OTQ4Y2E5NWMtOWJiMy00YzE1LTg4M2ItOWZkZTk3NThhZTE2; Path=/";
         }
       })
       .catch((error) => {
