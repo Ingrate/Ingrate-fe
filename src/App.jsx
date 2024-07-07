@@ -37,6 +37,18 @@ function App() {
   });
   const nav = useNavigate();
 
+  // 사용자 등록 식재료 정보 get
+  const getIngredients = () => {
+    axiosInstance
+        .get(`/ingredient`)
+        .then((response) => {
+          setIngreds(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+  }
+
   // 새로운 식재료 정보 post
   const postIngredient = () => {
     axiosInstance
@@ -150,14 +162,7 @@ function App() {
           nav("/main");
 
           // 로그인 시 사용자 등록 식재료 정보 get
-          axiosInstance
-            .get(`/ingredient`)
-            .then((response) => {
-              setIngreds(response.data);
-            })
-            .catch((error) => {
-              console.error("Error fetching data:", error);
-            });
+          getIngredients();
         }
       })
       .catch((error) => {
