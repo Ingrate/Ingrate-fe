@@ -16,6 +16,8 @@ import { axiosInstance } from "./api/url";
 function App() {
   const ingredsRef = useRef(3);
   const [ingreds, setIngreds] = useState([]);
+
+  const [errorMessage, setErrorMessage] = useState("");
   const [ingred, setIngred] = useState({
     name: "",
     amount: "",
@@ -34,18 +36,6 @@ function App() {
     rememberMe: false,
   });
   const nav = useNavigate();
-
-  // 사용자 입력 식재료 배열 get
-  useEffect(() => {
-    axios
-      .get("/ingredient")
-      .then((response) => {
-        setIngreds(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
 
   // 새로운 식재료 정보 post
   const postIngredient = () => {
@@ -116,10 +106,29 @@ function App() {
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");
+          nav("/");
         }
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        // 요청이 실패한 경우
+        if (error.response) {
+          // 서버가 응답 코드를 반환한 경우
+          const { status, data } = error.response;
+          if (status === 404 || status === 400) {
+            // 404 또는 400 에러 처리
+            setErrorMessage(data.message);
+            // 오류 메시지 팝업을 표시할 수 있습니다.
+          } else {
+            // 다른 서버 오류 처리
+            console.error("Server Error:", error.response.data);
+          }
+        } else if (error.request) {
+          // 요청이 서버에 전송되지 않은 경우
+          console.error("Request Error:", error.request);
+        } else {
+          // 오류가 발생한 경우
+          console.error("Error:", error.message);
+        }
       });
   };
 
@@ -134,10 +143,41 @@ function App() {
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");
+          nav("/main");
+
+          // 로그인 시 사용자 등록 식재료 정보 get
+          axiosInstance
+            .get(`/ingredient`)
+            .then((response) => {
+              setIngreds(response.data);
+            })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+          document.cookie =
+            "OTQ4Y2E5NWMtOWJiMy00YzE1LTg4M2ItOWZkZTk3NThhZTE2; Path=/";
         }
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        // 요청이 실패한 경우
+        if (error.response) {
+          // 서버가 응답 코드를 반환한 경우
+          const { status, data } = error.response;
+          if (status === 404 || status === 400) {
+            // 404 또는 400 에러 처리
+            setErrorMessage(data.message);
+            // 오류 메시지 팝업을 표시할 수 있습니다.
+          } else {
+            // 다른 서버 오류 처리
+            console.error("Server Error:", error.response.data);
+          }
+        } else if (error.request) {
+          // 요청이 서버에 전송되지 않은 경우
+          console.error("Request Error:", error.request);
+        } else {
+          // 오류가 발생한 경우
+          console.error("Error:", error.message);
+        }
       });
   };
 

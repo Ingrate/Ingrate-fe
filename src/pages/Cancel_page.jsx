@@ -56,12 +56,7 @@ function Cancel_page({ username }) {
             nav(-1);
           }}
         ></Button>
-        <Button
-          text={"탈퇴하기"}
-          onClick={() => {
-            onClickButton;
-          }}
-        ></Button>
+        <Button text={"탈퇴하기"} onClick={onClickButton}></Button>
       </div>
     </>
   );

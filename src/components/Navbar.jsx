@@ -1,15 +1,17 @@
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../api/url";
 // import "./Navbar.css";
 
 function Navbar({ user }) {
+  const nav = useNavigate();
   const onClickLogout = () => {
     axiosInstance
       .post(`/auth/logout`)
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");
+          nav("/");
         }
       })
       .catch((error) => {
@@ -33,7 +35,6 @@ function Navbar({ user }) {
           내 식재료
         </NavLink>
         <NavLink
-          to="/"
           onClick={onClickLogout}
           className={({ isActive }) => (isActive ? "isActive" : "notActive")}
         >
