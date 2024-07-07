@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Button from "./Button";
+import {axiosInstance} from "../api/url.js";
 
-function Detail({ setClicked, ingred, onUpdate, onDelete }) {
+function Detail({ setClicked, ingred, getIngredients }) {
   const [editor, setEditor] = useState(false);
   const [changedIngred, setChangedIngred] = useState(ingred);
 
@@ -10,9 +11,17 @@ function Detail({ setClicked, ingred, onUpdate, onDelete }) {
   };
 
   const onClickDone = () => {
-    onUpdate(changedIngred);
-    setEditor(false);
-    setClicked(false);
+    axiosInstance
+      .put(`/ingredient/${changedIngred.id}`, changedIngred)
+      .then(response=>{
+        console.log("PUT request successful with status 200")
+        getIngredients();
+        setEditor(false);
+        setClicked(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   const onClickClose = () => {
@@ -26,8 +35,16 @@ function Detail({ setClicked, ingred, onUpdate, onDelete }) {
   };
 
   const onClickDelete = () => {
-    onDelete(ingred);
-    setClicked(false);
+    axiosInstance
+      .delete(`/ingredient/${ingred.id}`)
+      .then(response=>{
+        console.log("DELETE request successful with status 200")
+        getIngredients();
+        setClicked(false);
+    })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   return (

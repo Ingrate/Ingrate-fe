@@ -1,6 +1,6 @@
 import MyList from "./MyList";
 
-function MyIngred({ ingreds, onUpdate, onDelete }) {
+function MyIngred({ ingreds, getIngredients, onDelete }) {
   return (
     <div>
       {ingreds.map((ingred) => {
@@ -8,8 +8,7 @@ function MyIngred({ ingreds, onUpdate, onDelete }) {
           <MyList
             key={ingred.id}
             ingred={ingred}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
+            getIngredients={getIngredients}
           ></MyList>
         );
       })}

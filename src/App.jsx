@@ -78,15 +78,6 @@ function App() {
     nav("/main");
   };
 
-  // 내 식재료 페이지에서 내용을 수정하는 함수
-  const onUpdate = (changed) => {
-    setIngreds(
-      ingreds.map((item) =>
-        String(item.id) === String(changed.id) ? changed : item,
-      ),
-    );
-  };
-
   // 사용자의 식재료 정보 입력을 반영하는 함수
   const onChangeIngred = (e) => {
     setIngred({ ...ingred, [e.target.id]: e.target.value });
@@ -101,11 +92,6 @@ function App() {
       cost: "",
       memo: "",
     });
-  };
-
-  // 내 식재료 페이지에서 식재료 정보를 삭제하는 함수
-  const onDelete = (del) => {
-    setIngreds(ingreds.filter((item) => String(item.id) !== String(del.id)));
   };
 
   const onChangeSignup = (e) => {
@@ -268,9 +254,8 @@ function App() {
           element={
             <Myingredients_page
               ingreds={ingreds}
-              onUpdate={onUpdate}
+              getIngredients={getIngredients}
               onChange={onChangeIngred}
-              onDelete={onDelete}
               username={login.username}
             />
           }

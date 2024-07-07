@@ -4,7 +4,7 @@ import MyIngred from "../components/MyIngred";
 import Divider from "../components/Divider";
 import { useEffect, useState } from "react";
 
-function Myingredients_page({ ingreds, onUpdate, onDelete, username }) {
+function Myingredients_page({ ingreds, getIngredients, username }) {
   const [user, setUser] = useState(username);
 
   useEffect(() => {
@@ -27,8 +27,7 @@ function Myingredients_page({ ingreds, onUpdate, onDelete, username }) {
       </div>
       <MyIngred
         ingreds={ingreds}
-        onUpdate={onUpdate}
-        onDelete={onDelete}
+        getIngredients={getIngredients}
       ></MyIngred>
     </>
   );

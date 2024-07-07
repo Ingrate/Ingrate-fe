@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Detail from "./Detail";
 
-function MyList({ id, ingred, onUpdate, onDelete }) {
+function MyList({ ingred, getIngredients }) {
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -10,8 +10,7 @@ function MyList({ id, ingred, onUpdate, onDelete }) {
         <Detail
           setClicked={setClicked}
           ingred={ingred}
-          onUpdate={onUpdate}
-          onDelete={onDelete}
+          getIngredients={getIngredients}
         ></Detail>
       </div>
       <div
