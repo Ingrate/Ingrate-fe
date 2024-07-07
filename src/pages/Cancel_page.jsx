@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../api/url";
 
 function Cancel_page({ username }) {
   const nav = useNavigate();
@@ -19,8 +19,8 @@ function Cancel_page({ username }) {
   };
 
   const onClickButton = () => {
-    axios
-      .delete("/member", { password: password })
+    axiosInstance
+      .delete(`/member`, { password: password })
       .then((response) => {
         if (response.data.isCorrect) {
           nav("/");

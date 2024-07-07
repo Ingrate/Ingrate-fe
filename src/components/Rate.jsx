@@ -1,16 +1,16 @@
 import Info from "./Info";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { axiosInstance } from "../api/url";
 
 function Rate({ ingred, initIngred }) {
   const nav = useNavigate();
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
-    axios
-      .post("/ingredient/rate", ingred)
+    axiosInstance
+      .post(`/ingredient/rate`, ingred)
       .then((response) => {
         setRate(response.data.rate);
       })

@@ -1,11 +1,12 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { axiosInstance } from "../api/url";
 // import "./Navbar.css";
 
 function Navbar({ user }) {
   const onClickLogout = () => {
-    axios
-      .post("/auth/logout")
+    axiosInstance
+      .post(`/auth/logout`)
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");

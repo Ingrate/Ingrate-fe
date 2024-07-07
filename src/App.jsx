@@ -11,7 +11,7 @@ import Myingredients_page from "./pages/Myingredients_page";
 import Confirm_page from "./pages/Confirm_page";
 import Cancel_page from "./pages/Cancel_page";
 import Change_pw_page from "./pages/Change_pw_page";
-import axios from "axios";
+import { axiosInstance } from "./api/url";
 
 function App() {
   const ingredsRef = useRef(3);
@@ -49,8 +49,8 @@ function App() {
 
   // 새로운 식재료 정보 post
   const postIngredient = () => {
-    axios
-      .post("/ingredient", ingred)
+    axiosInstance
+      .post(`/ingredient`, ingred)
       .then((response) => {
         // 요청이 성공한 경우
         if (response.status === 200) {
@@ -111,8 +111,8 @@ function App() {
   };
 
   const postAuthSignup = () => {
-    axios
-      .post("/auth/login", login)
+    axiosInstance
+      .post(`/auth/signup`, signup)
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");
@@ -129,8 +129,8 @@ function App() {
   };
 
   const postAuthLogin = () => {
-    axios
-      .post("/auth/login", login)
+    axiosInstance
+      .post(`/auth/login`, login)
       .then((response) => {
         if (response.status === 200) {
           console.log("POST request successful with status 200");

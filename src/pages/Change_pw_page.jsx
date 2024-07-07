@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../api/url";
 
 function Change_pw_page({ login }) {
   const nav = useNavigate();
@@ -20,8 +20,11 @@ function Change_pw_page({ login }) {
   };
 
   const onClickChange = () => {
-    axios
-      .put("/member", { oldPassword: login.password, password, passwordCheck })
+    axiosInstance
+      .put(`/member`, {
+        password,
+        passwordCheck,
+      })
       .then((response) => {
         // 요청이 성공한 경우
         if (response.status === 200) {
@@ -75,6 +78,7 @@ function Change_pw_page({ login }) {
         <Button
           text={"변경하기"}
           onClick={() => {
+            onClickChange();
             nav("/user");
           }}
         ></Button>

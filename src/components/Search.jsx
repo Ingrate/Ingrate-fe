@@ -4,7 +4,7 @@ import InputValue from "./InputValue";
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../api/url";
 
 function Search({ onChange }) {
   const [search, setSearch] = useState("");
@@ -13,8 +13,8 @@ function Search({ onChange }) {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("/ingredient/unit")
+    axiosInstance
+      .get(`/ingredient/unit`)
       .then((response) => {
         setDatas(response.data);
       })

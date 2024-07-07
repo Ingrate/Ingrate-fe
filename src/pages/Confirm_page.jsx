@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../api/url";
 
 function Confirm_page({ login }) {
   const nav = useNavigate();
@@ -20,8 +20,8 @@ function Confirm_page({ login }) {
   };
 
   const onClickButton = () => {
-    axios
-      .post("/member", { password: password })
+    axiosInstance
+      .post(`/member`, { password: password })
       .then((response) => {
         if (response.data.isCorrect) {
           nav("/change-password");

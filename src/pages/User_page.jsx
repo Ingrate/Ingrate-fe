@@ -3,7 +3,7 @@ import UserHeader from "../components/UserHeader";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../api/url";
 
 function User_page({ username }) {
   const nav = useNavigate();
@@ -20,8 +20,8 @@ function User_page({ username }) {
   }, [username]);
 
   useEffect(() => {
-    axios
-      .get("/member")
+    axiosInstance
+      .get(`/member`)
       .then((response) => {
         setUser(response.data);
       })
