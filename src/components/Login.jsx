@@ -2,8 +2,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Login({ username, password, onChange, onClick, postAuthLogin }) {
-  const nav = useNavigate();
-
   return (
     <div className="Login mr-40 flex">
       <div className="login-wrapper m-auto flex w-400 flex-col gap-2.5">
@@ -31,7 +29,6 @@ function Login({ username, password, onChange, onClick, postAuthLogin }) {
           className="mt-10 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold"
           onClick={() => {
             postAuthLogin();
-            nav("/main");
           }}
         >
           로그인

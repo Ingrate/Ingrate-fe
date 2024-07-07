@@ -8,8 +8,6 @@ function Signup({
   onChange,
   postAuthSignup,
 }) {
-  const nav = useNavigate();
-
   return (
     <div className="Signup mr-40 flex">
       <div className="signup-wrapper m-auto flex w-400 flex-col gap-2.5">
@@ -41,7 +39,6 @@ function Signup({
           className="mt-6 h-14 rounded-3xl border-2 border-amber-400 bg-amber-300 text-center text-xl font-bold"
           onClick={() => {
             postAuthSignup();
-            nav("/");
           }}
         >
           회원가입
